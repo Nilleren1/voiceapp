@@ -1,5 +1,5 @@
-import Navbar from "@/components/navigation/navbar";
-import VoiceRec from "../components/textToSpeech";
+import Navbar from "@/app/components/navigation/navbar";
+import VoiceRec from "./components/textToSpeech";
 
 export default function Home() {
   return (

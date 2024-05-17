@@ -9,7 +9,7 @@ const Navbar = () => {
           {/* Your logo or brand */}
           <Link href="/">
             <p>
-              <img src="/logo.png" alt="Logo" />
+              <img src="/svg/book.svg" alt="Logo" />
             </p>
           </Link>
 
@@ -17,7 +17,7 @@ const Navbar = () => {
           <ul className="hidden md:flex gap-x-6 text-white">
             <li>
               <Link href="/diary">
-                <p>Dagbog</p>
+                <p>Diary</p>
               </Link>
             </li>
             <li>
