@@ -12,7 +12,10 @@ export default function Diary() {
 }
 
 const Entries = () => {
-  const entries = useDiaryStore((state) => state.entries);
+  const { entries, removeEntry } = useDiaryStore((state) => ({
+    entries: state.entries,
+    removeEntry: state.removeEntry,
+  }));
 
   const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString();
@@ -23,14 +26,17 @@ const Entries = () => {
       <h1 className="text-3xl font-bold mb-4">Diary</h1>
       <div className="flex flex-wrap justify-center">
         {entries.map((entry, index) => (
-          <div key={index} className="w-full md:w-4/5 lg:w-1/3 p-2">
+          <div key={index} className="w-full md:w-4/5 lg:w-1/3 p-2 min-w-64">
             <div className="bg-white rounded-lg shadow-md p-6">
               <div className="flex flex-col justify-between items-center h-full">
                 <span className="text-gray-500 mb-2">
                   {formatDate(new Date())}
                 </span>
                 <span className="text-center">{entry}</span>
-                <button className="bg-red-500 text-white rounded px-2 py-1 mt-2">
+                <button
+                  onClick={() => removeEntry(index)}
+                  className="bg-red-500 text-white rounded px-2 py-1 mt-2"
+                >
                   Delete
                 </button>
               </div>

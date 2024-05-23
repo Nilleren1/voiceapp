@@ -21,12 +21,12 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/services">
+              <Link href="/">
                 <p>Services</p>
               </Link>
             </li>
             <li>
-              <Link href="/contacts">
+              <Link href="/">
                 <p>Contacts</p>
               </Link>
             </li>

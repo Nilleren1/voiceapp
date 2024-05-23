@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDiaryStore } from "../store";
 
@@ -116,20 +116,29 @@ const VoiceRec = () => {
         </div>
         <br />
         <div className="mt-12 m-5 px-4 flex flex-wrap justify-center">
-          <button
-            onClick={() => {
-              if (text?.trim()) {
-                useDiaryStore.getState().addEntry(text);
-                setIsEntrySent(true);
-                handleButtonClick();
-                // router.push("/diary");
-              }
-            }}
-            className="w-60 h-12 uppercase font-semibold text-m bg-blue-800 text-white hover:bg-blue-900"
-          >
-            Send to Diary
-          </button>
-          <div className="w-full">
+          <div className="flex space-x-4">
+            <button
+              onClick={() => {
+                if (text?.trim()) {
+                  useDiaryStore.getState().addEntry(text);
+                  setIsEntrySent(true);
+                  handleButtonClick();
+                }
+              }}
+              className="w-60 h-12 uppercase font-semibold text-m bg-green-500 text-white hover:bg-green-600"
+            >
+              Save Entry
+            </button>
+            <button
+              className="w-60 h-12 uppercase font-semibold text-m bg-blue-800 text-white hover:bg-blue-900"
+              onClick={() => {
+                router.push("/diary");
+              }}
+            >
+              Go To Diary
+            </button>
+          </div>
+          <div className="w-full mt-4">
             {isEntrySent && (
               <p className="text-center text-green-500">
                 Entry has been sent to the diary! X{buttonPressCount}
@@ -137,7 +146,6 @@ const VoiceRec = () => {
             )}
           </div>
         </div>
-        <p className="text-center">Use this button to save the record.</p>
       </div>
     </div>
   );
