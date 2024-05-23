@@ -111,6 +111,7 @@ const VoiceRec = () => {
           <textarea
             className="w-full h-20 border border-gray-400 rounded-md p-2"
             value={text}
+            onChange={(event) => setText(event.target.value)}
           ></textarea>{" "}
           <div className="opacity-60">{confidence}</div>
         </div>
