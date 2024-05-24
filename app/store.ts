@@ -13,7 +13,7 @@ type DiaryStore = {
 
 export const useDiaryStore = create<DiaryStore>((set) => ({
   entries:
-    typeof window !== "undefined"
+    typeof window !== "undefined" // Check if we're in the browser environment
       ? JSON.parse(localStorage.getItem("entries") || "[]").map(
           (entry: any) => ({
             text: entry.text,
